@@ -17,11 +17,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.pnikosis.materialishprogress.ProgressWheel;
-
 import java.util.List;
 
 public class SweetAlertDialog extends Dialog implements View.OnClickListener {
+    public static final int NORMAL_TYPE = 0;
+    public static final int ERROR_TYPE = 1;
+    public static final int SUCCESS_TYPE = 2;
+    public static final int WARNING_TYPE = 3;
+    public static final int CUSTOM_IMAGE_TYPE = 4;
+    public static final int PROGRESS_TYPE = 5;
     private View mDialogView;
     private AnimationSet mModalInAnim;
     private AnimationSet mModalOutAnim;
@@ -55,17 +59,6 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     private OnSweetClickListener mCancelClickListener;
     private OnSweetClickListener mConfirmClickListener;
     private boolean mCloseFromCancel;
-
-    public static final int NORMAL_TYPE = 0;
-    public static final int ERROR_TYPE = 1;
-    public static final int SUCCESS_TYPE = 2;
-    public static final int WARNING_TYPE = 3;
-    public static final int CUSTOM_IMAGE_TYPE = 4;
-    public static final int PROGRESS_TYPE = 5;
-
-    public static interface OnSweetClickListener {
-        public void onClick (SweetAlertDialog sweetAlertDialog);
-    }
 
     public SweetAlertDialog(Context context) {
         this(context, NORMAL_TYPE);
@@ -235,7 +228,6 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         changeAlertType(alertType, false);
     }
 
-
     public String getTitleText () {
         return mTitleText;
     }
@@ -378,5 +370,9 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
 
     public ProgressHelper getProgressHelper () {
         return mProgressHelper;
+    }
+
+    public interface OnSweetClickListener {
+        void onClick(SweetAlertDialog sweetAlertDialog);
     }
 }

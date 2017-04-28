@@ -2,7 +2,6 @@ package cn.pedant.SweetAlert;
 
 import android.content.Context;
 
-import com.pnikosis.materialishprogress.ProgressWheel;
 
 public class ProgressHelper {
     private ProgressWheel mProgressWheel;
