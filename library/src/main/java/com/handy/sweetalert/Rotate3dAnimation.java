@@ -1,4 +1,4 @@
-package cn.pedant.SweetAlert;
+package com.handy.sweetalert;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,56 +10,19 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
 public class Rotate3dAnimation extends Animation {
+    public static final int ROLL_BY_X = 0;
+    public static final int ROLL_BY_Y = 1;
+    public static final int ROLL_BY_Z = 2;
     private int mPivotXType = ABSOLUTE;
     private int mPivotYType = ABSOLUTE;
     private float mPivotXValue = 0.0f;
     private float mPivotYValue = 0.0f;
-
     private float mFromDegrees;
     private float mToDegrees;
     private float mPivotX;
     private float mPivotY;
     private Camera mCamera;
     private int mRollType;
-
-    public static final int ROLL_BY_X = 0;
-    public static final int ROLL_BY_Y = 1;
-    public static final int ROLL_BY_Z = 2;
-
-    protected static class Description {
-        public int type;
-        public float value;
-    }
-
-    Description parseValue(TypedValue value) {
-        Description d = new Description();
-        if (value == null) {
-            d.type = ABSOLUTE;
-            d.value = 0;
-        } else {
-            if (value.type == TypedValue.TYPE_FRACTION) {
-                d.type = (value.data & TypedValue.COMPLEX_UNIT_MASK) ==
-                        TypedValue.COMPLEX_UNIT_FRACTION_PARENT ?
-                        RELATIVE_TO_PARENT : RELATIVE_TO_SELF;
-                d.value = TypedValue.complexToFloat(value.data);
-                return d;
-            } else if (value.type == TypedValue.TYPE_FLOAT) {
-                d.type = ABSOLUTE;
-                d.value = value.getFloat();
-                return d;
-            } else if (value.type >= TypedValue.TYPE_FIRST_INT &&
-                    value.type <= TypedValue.TYPE_LAST_INT) {
-                d.type = ABSOLUTE;
-                d.value = value.data;
-                return d;
-            }
-        }
-
-        d.type = ABSOLUTE;
-        d.value = 0.0f;
-
-        return d;
-    }
 
     public Rotate3dAnimation (Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -114,6 +77,33 @@ public class Rotate3dAnimation extends Animation {
         initializePivotPoint();
     }
 
+    Description parseValue(TypedValue value) {
+        Description d = new Description();
+        if (value == null) {
+            d.type = ABSOLUTE;
+            d.value = 0;
+        } else {
+            if (value.type == TypedValue.TYPE_FRACTION) {
+                d.type = (value.data & TypedValue.COMPLEX_UNIT_MASK) == TypedValue.COMPLEX_UNIT_FRACTION_PARENT ? RELATIVE_TO_PARENT : RELATIVE_TO_SELF;
+                d.value = TypedValue.complexToFloat(value.data);
+                return d;
+            } else if (value.type == TypedValue.TYPE_FLOAT) {
+                d.type = ABSOLUTE;
+                d.value = value.getFloat();
+                return d;
+            } else if (value.type >= TypedValue.TYPE_FIRST_INT && value.type <= TypedValue.TYPE_LAST_INT) {
+                d.type = ABSOLUTE;
+                d.value = value.data;
+                return d;
+            }
+        }
+
+        d.type = ABSOLUTE;
+        d.value = 0.0f;
+
+        return d;
+    }
+
     private void initializePivotPoint() {
         if (mPivotXType == ABSOLUTE) {
             mPivotX = mPivotXValue;
@@ -155,5 +145,10 @@ public class Rotate3dAnimation extends Animation {
 
         matrix.preTranslate(-mPivotX, -mPivotY);
         matrix.postTranslate(mPivotX, mPivotY);
+    }
+
+    protected static class Description {
+        public int type;
+        public float value;
     }
 }
