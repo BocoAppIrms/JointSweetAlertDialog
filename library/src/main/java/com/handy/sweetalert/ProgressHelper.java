@@ -1,4 +1,4 @@
-package cn.pedant.SweetAlert;
+package com.handy.sweetalert;
 
 import android.content.Context;
 
@@ -27,16 +27,16 @@ public class ProgressHelper {
         mCircleRadius = ctx.getResources().getDimensionPixelOffset(R.dimen.progress_circle_radius);
     }
 
-    public ProgressWheel getProgressWheel () {
+    public ProgressWheel getProgressWheel() {
         return mProgressWheel;
     }
 
-    public void setProgressWheel (ProgressWheel progressWheel) {
+    public void setProgressWheel(ProgressWheel progressWheel) {
         mProgressWheel = progressWheel;
         updatePropsIfNeed();
     }
 
-    private void updatePropsIfNeed () {
+    private void updatePropsIfNeed() {
         if (mProgressWheel != null) {
             if (!mToSpin && mProgressWheel.isSpinning()) {
                 mProgressWheel.stopSpinning();
@@ -113,7 +113,7 @@ public class ProgressHelper {
 
     /**
      * @param circleRadius units using pixel
-     * **/
+     **/
     public void setCircleRadius(int circleRadius) {
         mCircleRadius = circleRadius;
         updatePropsIfNeed();
