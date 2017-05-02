@@ -1,4 +1,4 @@
-package com.handy.sweetalert;
+package cn.pedant.SweetAlert;
 
 import android.content.Context;
 import android.graphics.Canvas;
