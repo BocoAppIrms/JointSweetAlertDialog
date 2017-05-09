@@ -67,7 +67,7 @@ public class SweetDialogUtil {
      * @param confirmText 确认按钮内容
      * @param errorClick  确认按钮点击事件
      */
-    public SweetAlertDialog showWarningl(Activity activity, String title, String content, String confirmText, SweetAlertDialog.OnSweetClickListener errorClick) {
+    public SweetAlertDialog showWarning(Activity activity, String title, String content, String confirmText, SweetAlertDialog.OnSweetClickListener errorClick) {
         if (!activity.isFinishing()) {
             dismissAll(activity);
             return showDialog(activity, SweetAlertDialog.WARNING_TYPE, title, content, confirmText, null, errorClick, null);
