@@ -10,7 +10,7 @@
         android:fromAlpha="0"
         android:toAlpha="1"/>
 
-    <sweet:com.handy.sweetalert.Rotate3dAnimation
+    <sweet:cn.pedant.SweetAlert.Rotate3dAnimation
         android:duration="400"
         sweet:fromDeg="100"
         sweet:pivotX="50%"

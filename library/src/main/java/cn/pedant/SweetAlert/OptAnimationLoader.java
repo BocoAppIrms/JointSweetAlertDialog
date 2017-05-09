@@ -1,8 +1,10 @@
-package com.handy.sweetalert;
+package cn.pedant.SweetAlert;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Xml;
 import android.view.animation.AlphaAnimation;
@@ -18,6 +20,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 
 public class OptAnimationLoader {
+    @TargetApi(Build.VERSION_CODES.N)
     public static Animation loadAnimation(Context context, int id) throws Resources.NotFoundException {
         XmlResourceParser parser = null;
         try {
