@@ -1,4 +1,4 @@
-package cn.pedant.SweetAlert;
+package com.handy.sweetalert;
 
 
 import android.app.Dialog;
