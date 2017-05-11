@@ -18,6 +18,12 @@ public class SweetDialogUtil {
     private SweetAlertDialog errorDialog;
     private SweetAlertDialog normalDialog;
 
+    private boolean canCelable_Progress = false; //点击手机返回键可否关闭进度框
+    private boolean canCeledOnTouchOutside_Progress = false; //点击外部屏幕可否关闭进度框
+
+    private boolean canCelable_Other = true; //点击手机返回键可否关闭对话框
+    private boolean canCeledOnTouchOutside_Other = true; //点击外部屏幕可否关闭对话框
+
     private SweetDialogUtil() {
     }
 
@@ -35,7 +41,7 @@ public class SweetDialogUtil {
      * @param title    标题内容
      */
     public SweetAlertDialog showProgress(Activity activity, String title) {
-        if (!activity.isFinishing()) {
+        if (activity != null && !activity.isFinishing()) {
             dismissAll(activity);
             return showDialog(activity, SweetAlertDialog.PROGRESS_TYPE, title, null, null, null, null, null);
         }
@@ -51,7 +57,7 @@ public class SweetDialogUtil {
      * @param successClick 确认按钮点击事件
      */
     public SweetAlertDialog showSuccess(Activity activity, String title, String confirmText, SweetAlertDialog.OnSweetClickListener successClick) {
-        if (!activity.isFinishing()) {
+        if (activity != null && !activity.isFinishing()) {
             dismissAll(activity);
             return showDialog(activity, SweetAlertDialog.SUCCESS_TYPE, title, null, confirmText, null, successClick, null);
         }
@@ -68,7 +74,7 @@ public class SweetDialogUtil {
      * @param errorClick  确认按钮点击事件
      */
     public SweetAlertDialog showWarning(Activity activity, String title, String content, String confirmText, SweetAlertDialog.OnSweetClickListener errorClick) {
-        if (!activity.isFinishing()) {
+        if (activity != null && !activity.isFinishing()) {
             dismissAll(activity);
             return showDialog(activity, SweetAlertDialog.WARNING_TYPE, title, content, confirmText, null, errorClick, null);
         }
@@ -85,7 +91,7 @@ public class SweetDialogUtil {
      * @param errorClick  确认按钮点击事件
      */
     public SweetAlertDialog showError(Activity activity, String title, String content, String confirmText, SweetAlertDialog.OnSweetClickListener errorClick) {
-        if (!activity.isFinishing()) {
+        if (activity != null && !activity.isFinishing()) {
             dismissAll(activity);
             return showDialog(activity, SweetAlertDialog.ERROR_TYPE, title, content, confirmText, null, errorClick, null);
         }
@@ -104,7 +110,7 @@ public class SweetDialogUtil {
      * @param cancelClick  取消按钮点击事件
      */
     public SweetAlertDialog showNormal(Activity activity, String title, String content, String confirmText, String cancelText, SweetAlertDialog.OnSweetClickListener confirmClick, SweetAlertDialog.OnSweetClickListener cancelClick) {
-        if (!activity.isFinishing()) {
+        if (activity != null && !activity.isFinishing()) {
             dismissAll(activity);
             return showDialog(activity, SweetAlertDialog.NORMAL_TYPE, title, content, confirmText, cancelText, confirmClick, cancelClick);
         }
@@ -115,7 +121,7 @@ public class SweetDialogUtil {
      * 显示进度框
      */
     private SweetAlertDialog showDialog(Activity activity, int dialogType, String title, String content, String confirmText, String cancelText, SweetAlertDialog.OnSweetClickListener confirmClick, SweetAlertDialog.OnSweetClickListener cancelClick) {
-        if (!activity.isFinishing()) {
+        if (activity != null && !activity.isFinishing()) {
             switch (dialogType) {
                 case SweetAlertDialog.PROGRESS_TYPE:
                     progressDialog = new SweetAlertDialog(activity, SweetAlertDialog.PROGRESS_TYPE);
@@ -168,7 +174,7 @@ public class SweetDialogUtil {
      * 关闭全部进度框
      */
     public void dismissAll(Activity activity) {
-        if (!activity.isFinishing()) {
+        if (activity != null && !activity.isFinishing()) {
             try {
                 if (sweetAlertDialog != null && sweetAlertDialog.isShowing()) {
                     try {
