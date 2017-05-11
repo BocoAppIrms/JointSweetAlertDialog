@@ -18,11 +18,11 @@ public class SweetDialogUtil {
     private SweetAlertDialog errorDialog;
     private SweetAlertDialog normalDialog;
 
-    private boolean canCelable_Progress = false; //点击手机返回键可否关闭进度框
-    private boolean canCeledOnTouchOutside_Progress = false; //点击外部屏幕可否关闭进度框
+    private boolean cancelable_Progress = false; //点击手机返回键可否关闭进度框
+    private boolean canceledOnTouchOutside_Progress = false; //点击外部屏幕可否关闭进度框
 
-    private boolean canCelable_Other = true; //点击手机返回键可否关闭对话框
-    private boolean canCeledOnTouchOutside_Other = true; //点击外部屏幕可否关闭对话框
+    private boolean cancelable_Others = true; //点击手机返回键可否关闭对话框
+    private boolean canceledOnTouchOutside_Others = true; //点击外部屏幕可否关闭对话框
 
     private SweetDialogUtil() {
     }
@@ -31,7 +31,23 @@ public class SweetDialogUtil {
         if (sweetDialogUtil == null) {
             sweetDialogUtil = new SweetDialogUtil();
         }
+        sweetDialogUtil.cancelable_Progress = false;
+        sweetDialogUtil.canceledOnTouchOutside_Progress = false;
+        sweetDialogUtil.cancelable_Others = true;
+        sweetDialogUtil.canceledOnTouchOutside_Others = true;
         return sweetDialogUtil;
+    }
+
+    public SweetDialogUtil setProgressDialogCancelable(boolean cancelable_Progress, boolean canceledOnTouchOutside_Progress) {
+        this.cancelable_Progress = cancelable_Progress;
+        this.canceledOnTouchOutside_Progress = canceledOnTouchOutside_Progress;
+        return this;
+    }
+
+    public SweetDialogUtil setOthersDialogCancelable(boolean cancelable_Others, boolean canceledOnTouchOutside_Others) {
+        this.cancelable_Others = cancelable_Others;
+        this.canceledOnTouchOutside_Others = canceledOnTouchOutside_Others;
+        return this;
     }
 
     /**
@@ -147,11 +163,11 @@ public class SweetDialogUtil {
                     break;
             }
             if (dialogType == SweetAlertDialog.PROGRESS_TYPE) {
-                sweetAlertDialog.setCancelable(false);
-                sweetAlertDialog.setCanceledOnTouchOutside(false);
+                sweetAlertDialog.setCancelable(cancelable_Progress);
+                sweetAlertDialog.setCanceledOnTouchOutside(canceledOnTouchOutside_Progress);
             } else {
-                sweetAlertDialog.setCancelable(true);
-                sweetAlertDialog.setCanceledOnTouchOutside(true);
+                sweetAlertDialog.setCancelable(cancelable_Others);
+                sweetAlertDialog.setCanceledOnTouchOutside(canceledOnTouchOutside_Others);
             }
 
             sweetAlertDialog.setTitleText(isEmpty(title) ? null : title);
