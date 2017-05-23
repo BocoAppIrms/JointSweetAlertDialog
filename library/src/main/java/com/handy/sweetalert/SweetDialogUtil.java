@@ -141,27 +141,27 @@ public class SweetDialogUtil {
      * 显示进度框
      */
     private SweetAlertDialog showDialog(int dialogType, String title, String content, String confirmText, String cancelText, SweetAlertDialog.OnSweetClickListener confirmClick, SweetAlertDialog.OnSweetClickListener cancelClick) {
-        if (SweetDialogClient.activity != null) {
-            if (!SweetDialogClient.activity.isFinishing()) {
+        if (SweetDialogClient.getActivityNow() != null) {
+            if (!SweetDialogClient.getActivityNow().isFinishing()) {
                 switch (dialogType) {
                     case SweetAlertDialog.PROGRESS_TYPE:
-                        progressDialog = new SweetAlertDialog(SweetDialogClient.activity, SweetAlertDialog.PROGRESS_TYPE);
+                        progressDialog = new SweetAlertDialog(SweetDialogClient.getActivityNow(), SweetAlertDialog.PROGRESS_TYPE);
                         sweetAlertDialog = progressDialog;
                         break;
                     case SweetAlertDialog.SUCCESS_TYPE:
-                        successDialog = new SweetAlertDialog(SweetDialogClient.activity, SweetAlertDialog.SUCCESS_TYPE);
+                        successDialog = new SweetAlertDialog(SweetDialogClient.getActivityNow(), SweetAlertDialog.SUCCESS_TYPE);
                         sweetAlertDialog = successDialog;
                         break;
                     case SweetAlertDialog.WARNING_TYPE:
-                        warninglDialog = new SweetAlertDialog(SweetDialogClient.activity, SweetAlertDialog.WARNING_TYPE);
+                        warninglDialog = new SweetAlertDialog(SweetDialogClient.getActivityNow(), SweetAlertDialog.WARNING_TYPE);
                         sweetAlertDialog = warninglDialog;
                         break;
                     case SweetAlertDialog.ERROR_TYPE:
-                        errorDialog = new SweetAlertDialog(SweetDialogClient.activity, SweetAlertDialog.ERROR_TYPE);
+                        errorDialog = new SweetAlertDialog(SweetDialogClient.getActivityNow(), SweetAlertDialog.ERROR_TYPE);
                         sweetAlertDialog = errorDialog;
                         break;
                     case SweetAlertDialog.NORMAL_TYPE:
-                        normalDialog = new SweetAlertDialog(SweetDialogClient.activity, SweetAlertDialog.NORMAL_TYPE);
+                        normalDialog = new SweetAlertDialog(SweetDialogClient.getActivityNow(), SweetAlertDialog.NORMAL_TYPE);
                         sweetAlertDialog = normalDialog;
                         break;
                     default:
@@ -198,8 +198,8 @@ public class SweetDialogUtil {
      * 关闭全部进度框
      */
     public void dismissAll() {
-        if (SweetDialogClient.activity != null) {
-            if (!SweetDialogClient.activity.isFinishing()) {
+        if (SweetDialogClient.getActivityNow() != null) {
+            if (!SweetDialogClient.getActivityNow().isFinishing()) {
                 try {
                     if (sweetAlertDialog != null && sweetAlertDialog.isShowing()) {
                         try {
@@ -268,7 +268,7 @@ public class SweetDialogUtil {
      * 关闭全部进度框
      */
     public void finishAll() {
-        if (SweetDialogClient.activity != null) {
+        if (SweetDialogClient.getActivityNow() != null) {
             try {
                 if (sweetAlertDialog != null && sweetAlertDialog.isShowing()) {
                     try {
