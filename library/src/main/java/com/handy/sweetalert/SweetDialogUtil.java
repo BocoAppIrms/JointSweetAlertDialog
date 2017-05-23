@@ -17,6 +17,8 @@ public class SweetDialogUtil {
     private SweetAlertDialog errorDialog;
     private SweetAlertDialog normalDialog;
 
+    private boolean isActiveShow = false;
+
     private boolean cancelable_Progress = false; //点击手机返回键可否关闭进度框
     private boolean canceledOnTouchOutside_Progress = false; //点击外部屏幕可否关闭进度框
 
@@ -39,12 +41,21 @@ public class SweetDialogUtil {
     }
 
     /**
+     * 设置是否要手动显示Dialog
+     *
+     * @param activeShow true:手动显示(.show())
+     */
+    public void setActiveShow(boolean activeShow) {
+        isActiveShow = activeShow;
+    }
+
+    /**
      * 设置进度框是否可以手动取消
      *
      * @param cancelable_Progress             返回键
      * @param canceledOnTouchOutside_Progress 进度框外部点击
      */
-    public SweetDialogUtil setProgressDialogCancelable(boolean cancelable_Progress, boolean canceledOnTouchOutside_Progress) {
+    public SweetDialogUtil setProgressCancelable(boolean cancelable_Progress, boolean canceledOnTouchOutside_Progress) {
         this.cancelable_Progress = cancelable_Progress;
         this.canceledOnTouchOutside_Progress = canceledOnTouchOutside_Progress;
         return this;
@@ -56,7 +67,7 @@ public class SweetDialogUtil {
      * @param cancelable_Others             返回键
      * @param canceledOnTouchOutside_Others 进度框外部点击
      */
-    public SweetDialogUtil setOthersDialogCancelable(boolean cancelable_Others, boolean canceledOnTouchOutside_Others) {
+    public SweetDialogUtil setOthersCancelable(boolean cancelable_Others, boolean canceledOnTouchOutside_Others) {
         this.cancelable_Others = cancelable_Others;
         this.canceledOnTouchOutside_Others = canceledOnTouchOutside_Others;
         return this;
@@ -172,8 +183,8 @@ public class SweetDialogUtil {
                     sweetAlertDialog.setConfirmClickListener(confirmClick);
                 if (cancelClick != null)
                     sweetAlertDialog.setCancelClickListener(cancelClick);
-
-                sweetAlertDialog.show();
+                if (!isActiveShow)
+                    sweetAlertDialog.show();
                 return sweetAlertDialog;
             }
         } else {
