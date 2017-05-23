@@ -39,4 +39,9 @@ public class SweetDialogClient {
     public static Activity getActivityNow() {
         return activityNow;
     }
+
+    public void clean() {
+        activityLast = null;
+        activityNow = null;
+    }
 }
