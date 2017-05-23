@@ -5,7 +5,6 @@
           android:versionName="1.0">
 
     <application
-        android:name=".LocalBaseApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar">
@@ -17,7 +16,5 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityOne"/>
-        <activity android:name=".ActivityTwo"/>
     </application>
 </manifest>
