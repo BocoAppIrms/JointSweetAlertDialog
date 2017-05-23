@@ -45,8 +45,9 @@ public class SweetDialogUtil {
      *
      * @param activeShow true:手动显示(.show())
      */
-    public void setActiveShow(boolean activeShow) {
+    public SweetDialogUtil setActiveShow(boolean activeShow) {
         isActiveShow = activeShow;
+        return this;
     }
 
     /**
