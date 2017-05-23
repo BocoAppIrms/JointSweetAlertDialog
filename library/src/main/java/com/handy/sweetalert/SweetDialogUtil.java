@@ -165,7 +165,7 @@ public class SweetDialogUtil {
 
                 sweetAlertDialog.setTitleText(isEmpty(title) ? null : title);
                 sweetAlertDialog.setContentText(isEmpty(content) ? null : content);
-                sweetAlertDialog.setCancelText(isEmpty(cancelText) ? null : title);
+                sweetAlertDialog.setCancelText(isEmpty(cancelText) ? null : cancelText);
                 sweetAlertDialog.setConfirmText(isEmpty(confirmText) ? null : confirmText);
 
                 if (confirmClick != null)
