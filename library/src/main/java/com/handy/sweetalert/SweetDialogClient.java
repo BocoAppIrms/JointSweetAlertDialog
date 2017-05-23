@@ -15,8 +15,8 @@ import android.util.Log;
  * </pre>
  */
 public class SweetDialogClient {
-    private static Activity activityLast = null;
     private static Activity activityNow = null;
+    private static Activity activityLast = null;
 
     public static void connect(Activity activity) {
         activityNow = activity;
