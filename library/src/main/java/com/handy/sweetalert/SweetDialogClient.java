@@ -15,18 +15,28 @@ import android.util.Log;
  * </pre>
  */
 public class SweetDialogClient {
-    public static Activity activity = null;
+    private static Activity activityLast = null;
+    private static Activity activityNow = null;
 
-    public static void connect(Activity aty) {
-        activity = aty;
+    public static void connect(Activity activity) {
+        activityNow = activity;
     }
 
     public static void disconnect() {
-        if (activity != null && activity.isFinishing()) {
+        if (activityNow != null && activityNow.isFinishing()) {
             SweetDialogUtil.getInstance().finishAll();
-            activity = null;
+            activityLast = activityNow;
+            activityNow = null;
         } else {
             Log.e("SweetDialog", "SweetDialogClient未连接，请在Activity的onCreate中执行SweetDialogClient.connect(activity);");
         }
+    }
+
+    public static Activity getActivityLast() {
+        return activityLast;
+    }
+
+    public static Activity getActivityNow() {
+        return activityNow;
     }
 }
