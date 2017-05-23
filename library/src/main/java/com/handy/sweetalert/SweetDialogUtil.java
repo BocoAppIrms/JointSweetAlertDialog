@@ -17,7 +17,7 @@ public class SweetDialogUtil {
     private SweetAlertDialog errorDialog;
     private SweetAlertDialog normalDialog;
 
-    private boolean isActiveShow = false;
+    private boolean isShowLater = false;
 
     private boolean cancelable_Progress = false; //点击手机返回键可否关闭进度框
     private boolean canceledOnTouchOutside_Progress = false; //点击外部屏幕可否关闭进度框
@@ -43,10 +43,10 @@ public class SweetDialogUtil {
     /**
      * 设置是否要手动显示Dialog
      *
-     * @param activeShow true:手动显示(.show())
+     * @param showLater true:手动显示(.show())
      */
-    public SweetDialogUtil setActiveShow(boolean activeShow) {
-        isActiveShow = activeShow;
+    public SweetDialogUtil setShowLater(boolean showLater) {
+        isShowLater = showLater;
         return this;
     }
 
@@ -184,7 +184,7 @@ public class SweetDialogUtil {
                     sweetAlertDialog.setConfirmClickListener(confirmClick);
                 if (cancelClick != null)
                     sweetAlertDialog.setCancelClickListener(cancelClick);
-                if (!isActiveShow)
+                if (!isShowLater)
                     sweetAlertDialog.show();
                 return sweetAlertDialog;
             }
