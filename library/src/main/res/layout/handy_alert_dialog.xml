@@ -5,7 +5,7 @@
               android:layout_width="@dimen/alert_width"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:background="@drawable/dialog_background"
+    android:background="@drawable/handy_dialog_background"
               android:gravity="center"
               android:orientation="vertical"
               android:padding="10dp">
@@ -29,7 +29,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/error_circle"/>
+            android:background="@drawable/handy_error_circle" />
 
         <ImageView
             android:id="@+id/error_x"
@@ -37,7 +37,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
             android:scaleType="center"
-            android:src="@drawable/error_center_x"/>
+            android:src="@drawable/handy_error_center_x" />
 
     </FrameLayout>
 
@@ -51,7 +51,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/success_bow"/>
+            android:background="@drawable/handy_success_bow" />
 
         <View
             android:id="@+id/mask_right"
@@ -72,7 +72,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/success_circle"/>
+            android:background="@drawable/handy_success_circle" />
 
         <com.handy.sweetalert.SuccessTickView
             android:id="@+id/success_tick"
@@ -91,14 +91,14 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/warning_circle"/>
+            android:background="@drawable/handy_warning_circle" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
             android:scaleType="center"
-            android:src="@drawable/warning_sigh"/>
+            android:src="@drawable/handy_warning_sigh" />
     </FrameLayout>
 
     <FrameLayout
@@ -150,7 +150,7 @@
             android:id="@+id/cancel_button"
             style="@style/dialog_blue_button"
             android:layout_marginRight="10dp"
-            android:background="@drawable/gray_button_background"
+            android:background="@drawable/handy_gray_button_background"
             android:text="@string/dialog_cancel"
             android:visibility="gone"/>
 
