@@ -79,7 +79,7 @@ public class ProgressWheel extends View {
      */
     public ProgressWheel(Context context, AttributeSet attrs) {
         super(context, attrs);
-        parseAttributes(context.obtainStyledAttributes(attrs, R.styleable.ProgressWheel));
+        parseAttributes(context.obtainStyledAttributes(attrs, R.styleable.Handy_SADialog_ProgressWheel));
         setAnimationEnabled();
     }
 
@@ -213,17 +213,17 @@ public class ProgressWheel extends View {
         barWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, barWidth, metrics);
         rimWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, rimWidth, metrics);
         circleRadius = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, circleRadius, metrics);
-        circleRadius = (int) a.getDimension(R.styleable.ProgressWheel_matProg_circleRadius, circleRadius);
-        fillRadius = a.getBoolean(R.styleable.ProgressWheel_matProg_fillRadius, false);
-        barWidth = (int) a.getDimension(R.styleable.ProgressWheel_matProg_barWidth, barWidth);
-        rimWidth = (int) a.getDimension(R.styleable.ProgressWheel_matProg_rimWidth, rimWidth);
-        float baseSpinSpeed = a.getFloat(R.styleable.ProgressWheel_matProg_spinSpeed, spinSpeed / 360.0f);
+        circleRadius = (int) a.getDimension(R.styleable.Handy_SADialog_ProgressWheel_matProg_circleRadius, circleRadius);
+        fillRadius = a.getBoolean(R.styleable.Handy_SADialog_ProgressWheel_matProg_fillRadius, false);
+        barWidth = (int) a.getDimension(R.styleable.Handy_SADialog_ProgressWheel_matProg_barWidth, barWidth);
+        rimWidth = (int) a.getDimension(R.styleable.Handy_SADialog_ProgressWheel_matProg_rimWidth, rimWidth);
+        float baseSpinSpeed = a.getFloat(R.styleable.Handy_SADialog_ProgressWheel_matProg_spinSpeed, spinSpeed / 360.0f);
         spinSpeed = baseSpinSpeed * 360;
-        barSpinCycleTime = a.getInt(R.styleable.ProgressWheel_matProg_barSpinCycleTime, (int) barSpinCycleTime);
-        barColor = a.getColor(R.styleable.ProgressWheel_matProg_barColor, barColor);
-        rimColor = a.getColor(R.styleable.ProgressWheel_matProg_rimColor, rimColor);
-        linearProgress = a.getBoolean(R.styleable.ProgressWheel_matProg_linearProgress, false);
-        if (a.getBoolean(R.styleable.ProgressWheel_matProg_progressIndeterminate, false)) {
+        barSpinCycleTime = a.getInt(R.styleable.Handy_SADialog_ProgressWheel_matProg_barSpinCycleTime, (int) barSpinCycleTime);
+        barColor = a.getColor(R.styleable.Handy_SADialog_ProgressWheel_matProg_barColor, barColor);
+        rimColor = a.getColor(R.styleable.Handy_SADialog_ProgressWheel_matProg_rimColor, rimColor);
+        linearProgress = a.getBoolean(R.styleable.Handy_SADialog_ProgressWheel_matProg_linearProgress, false);
+        if (a.getBoolean(R.styleable.Handy_SADialog_ProgressWheel_matProg_progressIndeterminate, false)) {
             spin();
         }
         a.recycle();
@@ -240,6 +240,7 @@ public class ProgressWheel extends View {
     //Animation stuff
     //----------------------------------
 
+    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawArc(circleBounds, 360, 360, false, rimPaint);
@@ -657,10 +658,12 @@ public class ProgressWheel extends View {
         //required field that makes Parcelables from a Parcel
         public static final Creator<WheelSavedState> CREATOR =
                 new Creator<WheelSavedState>() {
+                    @Override
                     public WheelSavedState createFromParcel(Parcel in) {
                         return new WheelSavedState(in);
                     }
 
+                    @Override
                     public WheelSavedState[] newArray(int size) {
                         return new WheelSavedState[size];
                     }
