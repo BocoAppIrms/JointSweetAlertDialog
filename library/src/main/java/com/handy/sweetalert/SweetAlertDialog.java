@@ -65,13 +65,13 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     }
 
     public SweetAlertDialog(Context context, int alertType) {
-        super(context, R.style.handy_alert_dialog);
+        super(context, R.style.handy_sadialog_style);
         setCancelable(true);
         setCanceledOnTouchOutside(false);
         mProgressHelper = new ProgressHelper(context);
         mAlertType = alertType;
-        mErrorInAnim = OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_error_frame_in);
-        mErrorXInAnim = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_error_x_in);
+        mErrorInAnim = OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_sadialog_error_frame_in);
+        mErrorXInAnim = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_sadialog_error_x_in);
         // 2.3.x system don't support alpha-animation on layer-list drawable
         // remove it from animation set
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
@@ -86,10 +86,10 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
                 childAnims.remove(idx);
             }
         }
-        mSuccessBowAnim = OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_success_bow_roate);
-        mSuccessLayoutAnimSet = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_success_mask_layout);
-        mModalInAnim = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_modal_in);
-        mModalOutAnim = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_modal_out);
+        mSuccessBowAnim = OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_sadialog_success_bow_roate);
+        mSuccessLayoutAnimSet = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_sadialog_success_mask_layout);
+        mModalInAnim = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_sadialog_modal_in);
+        mModalOutAnim = (AnimationSet) OptAnimationLoader.loadAnimation(getContext(), R.anim.handy_sadialog_modal_out);
         mModalOutAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -130,7 +130,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.handy_alert_dialog);
+        setContentView(R.layout.handy_sadialog_layout);
 
         mDialogView = getWindow().getDecorView().findViewById(android.R.id.content);
         mTitleTextView = findViewById(R.id.title_text);
@@ -166,7 +166,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
         mProgressFrame.setVisibility(View.GONE);
         mConfirmButton.setVisibility(View.VISIBLE);
 
-        mConfirmButton.setBackgroundResource(R.drawable.handy_blue_button_background);
+        mConfirmButton.setBackgroundResource(R.drawable.handy_sadialog_blue_button_background);
         mErrorFrame.clearAnimation();
         mErrorX.clearAnimation();
         mSuccessTick.clearAnimation();
@@ -203,7 +203,7 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener {
                     mSuccessRightMask.startAnimation(mSuccessLayoutAnimSet.getAnimations().get(1));
                     break;
                 case WARNING_TYPE:
-                    mConfirmButton.setBackgroundResource(R.drawable.handy_red_button_background);
+                    mConfirmButton.setBackgroundResource(R.drawable.handy_sadialog_red_button_background);
                     mWarningFrame.setVisibility(View.VISIBLE);
                     break;
                 case CUSTOM_IMAGE_TYPE:

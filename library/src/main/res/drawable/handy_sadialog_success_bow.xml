@@ -2,7 +2,7 @@
 <shape android:shape="oval" xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@android:color/transparent" />
     <stroke
-        android:color="@color/handy_warning_stroke_color"
-        android:width="@dimen/handy_common_circle_width" />
+        android:color="@color/handy_sadialog_success_stroke_color"
+        android:width="@dimen/handy_sadialog_common_circle_width" />
 </shape>
 

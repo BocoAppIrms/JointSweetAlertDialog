@@ -16,7 +16,7 @@
                android:layout_marginTop="10dp"
                android:layout_marginBottom="15dp"
                android:layout_centerHorizontal="true"
-               android:contentDescription="@string/app_name"/>
+            android:contentDescription="@string/handy_sadialog_app_name" />
 
         <TextView
             android:id="@+id/txt_0"
@@ -33,7 +33,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@id/txt_0"
             android:id="@+id/progress_dialog"
-            style="@style/dialog_blue_button"
+            style="@style/handy_sadialog_blue_button"
             android:layout_margin="10dp"
             android:text="Try me!"/>
 
@@ -52,7 +52,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@id/txt_1"
             android:id="@+id/basic_test"
-            style="@style/dialog_blue_button"
+            style="@style/handy_sadialog_blue_button"
             android:layout_margin="10dp"
             android:text="Try me!"/>
 
@@ -72,7 +72,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/txt_2"
                 android:id="@+id/under_text_test"
-                style="@style/dialog_blue_button"
+            style="@style/handy_sadialog_blue_button"
                 android:layout_margin="10dp"
                 android:text="Try me!"/>
 
@@ -92,7 +92,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/txt_3"
                 android:id="@+id/error_text_test"
-                style="@style/dialog_blue_button"
+            style="@style/handy_sadialog_blue_button"
                 android:layout_margin="10dp"
                 android:text="Try me!"/>
 
@@ -112,7 +112,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/txt_4"
                 android:id="@+id/success_text_test"
-                style="@style/dialog_blue_button"
+            style="@style/handy_sadialog_blue_button"
                 android:layout_margin="10dp"
                 android:text="Try me!"/>
 
@@ -133,7 +133,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/txt_5"
                 android:id="@+id/warning_confirm_test"
-                style="@style/dialog_blue_button"
+            style="@style/handy_sadialog_blue_button"
                 android:layout_margin="10dp"
                 android:text="Try me!"/>
 
@@ -153,7 +153,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/txt_6"
                 android:id="@+id/warning_cancel_test"
-                style="@style/dialog_blue_button"
+            style="@style/handy_sadialog_blue_button"
                 android:layout_margin="10dp"
                 android:text="Try me!"/>
 
@@ -173,7 +173,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/txt_7"
                 android:id="@+id/custom_img_test"
-                style="@style/dialog_blue_button"
+            style="@style/handy_sadialog_blue_button"
                 android:layout_margin="10dp"
                 android:text="Try me!"/>
 

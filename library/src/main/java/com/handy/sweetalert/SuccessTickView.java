@@ -35,7 +35,7 @@ public class SuccessTickView extends View {
 
     private void init () {
         mPaint = new Paint();
-        mPaint.setColor(getResources().getColor(R.color.handy_success_stroke_color));
+        mPaint.setColor(getResources().getColor(R.color.handy_sadialog_success_stroke_color));
         mLeftRectWidth = CONST_LEFT_RECT_W;
         mRightRectWidth = CONST_RIGHT_RECT_W;
         mLeftRectGrowMode = false;

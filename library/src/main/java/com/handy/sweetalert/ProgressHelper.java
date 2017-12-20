@@ -18,13 +18,13 @@ public class ProgressHelper {
     public ProgressHelper(Context ctx) {
         mToSpin = true;
         mSpinSpeed = 0.75f;
-        mBarWidth = ctx.getResources().getDimensionPixelSize(R.dimen.handy_common_circle_width) + 1;
-        mBarColor = ctx.getResources().getColor(R.color.handy_progress_bar_color);
+        mBarWidth = ctx.getResources().getDimensionPixelSize(R.dimen.handy_sadialog_common_circle_width) + 1;
+        mBarColor = ctx.getResources().getColor(R.color.handy_sadialog_progress_bar_color);
         mRimWidth = 0;
         mRimColor = 0x00000000;
         mIsInstantProgress = false;
         mProgressVal = -1;
-        mCircleRadius = ctx.getResources().getDimensionPixelOffset(R.dimen.handy_progress_circle_radius);
+        mCircleRadius = ctx.getResources().getDimensionPixelOffset(R.dimen.handy_sadialog_progress_circle_radius);
     }
 
     public ProgressWheel getProgressWheel() {
